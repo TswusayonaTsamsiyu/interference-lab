@@ -1,9 +1,7 @@
 import numpy as np
 from scipy.optimize import curve_fit
 
-A = 0.04e-3  # slit width
-D = 0.125e-3  # slit separation
-L = 632.8e-9  # laser wavelength
+from .setup import L, A, D
 
 
 def fit_1_slit(angle, i0):

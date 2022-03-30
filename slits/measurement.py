@@ -34,11 +34,11 @@ class Measurement:
 
     @property
     def x(self):
-        return align(v2x(self.channel1), self.channel0)
+        return align(v2x(self.channel1), self.intensity)
 
     @property
     def intensity(self):
         return self.channel0
 
     def to_csv(self):
-        return "\n".join(map(lambda t: f"{t[0]}, {t[1]}", zip(self.channel1, self.channel0)))
+        return "\n".join(map(lambda t: f"{t[0]}, {t[1]}", zip(self.x, self.intensity)))
