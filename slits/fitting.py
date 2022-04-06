@@ -14,7 +14,7 @@ def fit_2_slits(angle, i0):
 
 def fit_3_slits(angle, i0):
     pd = np.pi * D
-    beta = np.pi * D * np.sin(angle) / L
+    beta = pd * np.sin(angle) / L
     return i0 * np.square(np.sinc(beta / np.pi)) * np.square(np.sin(3 * pd) / L / np.sin(pd / L))
 
 
