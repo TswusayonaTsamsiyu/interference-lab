@@ -3,7 +3,9 @@ from dataclasses import dataclass
 
 from .utils import align
 
-M, N = 0.011054427827757713, -0.000484659074423251  # Calibration linear fit parameters
+# M, N = 0.011054427827757713, -0.000484659074423251  # Calibration linear fit parameters
+M = 0.10369058652068087
+N = 0.0005657451071065812
 
 
 def v2x(v):
