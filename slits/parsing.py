@@ -35,3 +35,7 @@ def parse_measurement(raw: str):
         parse_metadata(metadata),
         *parse_data(data)
     )
+
+
+def parse_angle(calibration_path):
+    return float(calibration_path.stem)

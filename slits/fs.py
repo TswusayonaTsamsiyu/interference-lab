@@ -8,17 +8,27 @@ ILAY_SINC_DIR = Path("G:/") / ".shortcut-targets-by-id" / "1qgY2gJharU3uwILQitDr
 
 SINC_DIR = GABI_SINC_DIR if gethostname() == GABI_LAPTOP else ILAY_SINC_DIR
 
+CALIBRATION_DIR = SINC_DIR / "calibration"
+
 
 def first_file(directory):
     return next(directory.iterdir())
+
+
+def is_calibration(path: Path):
+    return path.suffix == ".txt"
 
 
 def get_slit_path(slit_num, *, old=False):
     return first_file(SINC_DIR / f"{slit_num}slit" / ("old" if old else "."))
 
 
-def get_calibration_path(angle):
-    return SINC_DIR / "calibration" / f"a{angle}.txt"
+def get_calibration_path(angle, *, old=False):
+    return CALIBRATION_DIR / ("old" if old else ".") / f"{angle}.txt"
+
+
+def iter_calibrations(old=False):
+    return filter(is_calibration, (CALIBRATION_DIR / ("old" if old else ".")).iterdir())
 
 
 def read_file(path):
