@@ -13,7 +13,7 @@ def plot_error_scatter(axes, x, y, yerr, xerr):
 
 
 def plot_fit(axes, fit, xdata, params, **kwargs):
-    xdata = np.linspace(xdata[0] * 0.9, xdata[-1] * 1.1, FIT_CURVE_DENSITY)
+    xdata = np.linspace(xdata[0] + xdata[0] * 0.1, xdata[-1] + xdata[-1] * 0.1, FIT_CURVE_DENSITY)
     return axes.plot(xdata, fit(xdata, *params), **kwargs)
 
 
