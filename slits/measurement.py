@@ -7,7 +7,6 @@ from .utils import align, filter_ascending, unzip
 # M, N = 0.011054427827757713, -0.000484659074423251  # Calibration linear fit parameters
 M = 0.10369058652068087
 N = 0.0005657451071065812
-FIX = np.pi
 
 
 def v2x(v):
