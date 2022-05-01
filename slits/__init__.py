@@ -9,9 +9,10 @@ def read_measurement(slit_num):
 
 
 def plot_fit_measurement(slit_num):
-    measurement = read_measurement(slit_num)
-    i0 = fit_measurement(slit_num, measurement)
+    measurement = read_measurement(slit_num).sort_jitter()
+    i0, fix = fit_measurement(slit_num, measurement)
+    print(f"{i0}, {fix}")
     with plot() as plt:
         plt.scatter(measurement.x, measurement.intensity)
-        plot_fit(plt, FITS[slit_num], measurement.x, (i0,))
+        plot_fit(plt, FITS[slit_num], measurement.x, (i0, fix), color="orange")
         plt.set(xlabel=DISTANCE_LABEL, ylabel=VOLTAGE_LABEL)
