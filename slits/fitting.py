@@ -3,8 +3,6 @@ from scipy.optimize import curve_fit
 
 from .setup import L, A, D
 
-FIX = 3.7
-
 
 def fit_1_slit(angle, i0, fix):
     return i0 * np.square(np.sinc(A * angle * fix / L))
